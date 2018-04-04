@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class TwitterModel extends Model
 {
-    protected $table = 'users_templates';
+    protected $table = 'users_twitter';
     protected $fillable = [
-        'twitter_template', 'facebook_template'
+        'oauth_token', 'oauth_token_secret', 'userid'
     ];
 
     public function user()

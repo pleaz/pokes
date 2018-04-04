@@ -80,7 +80,6 @@
                             {{ $localeCode }}
                         </a>
                     @endforeach
-
                 </div>
             @endif
 

@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function twitter()
+    {
+        return $this->hasOne('App\TwitterModel');
+    }
+
+    public function settings()
+    {
+        return $this->hasOne('App\Settings');
+    }
 }

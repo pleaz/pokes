@@ -1,6 +1,6 @@
 
-window._ = require('lodash');
-window.Popper = require('popper.js').default;
+//window._ = require('lodash');
+//window.Popper = require('popper.js').default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -54,3 +54,28 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/* fonts awesome */
+var fontawesome = require('@fortawesome/fontawesome');
+var faUser = require('@fortawesome/fontawesome-free-solid/faUser');
+var faSignOut = require('@fortawesome/fontawesome-free-solid/faSignOutAlt');
+//var faCircle = require('@fortawesome/fontawesome-free-regular/faCircle');
+var faTwitter = require('@fortawesome/fontawesome-free-brands/faTwitter');
+fontawesome.library.add(faUser,faSignOut,faTwitter);
+
+/* datepicker */
+require('bootstrap-datepicker');
+$(function () {
+    !function(a){a.fn.datepicker.dates.ru={days:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],daysShort:["Вск","Пнд","Втр","Срд","Чтв","Птн","Суб"],daysMin:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],months:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],monthsShort:["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"],today:"Сегодня",clear:"Очистить",format:"dd.mm.yyyy",weekStart:1,monthsTitle:"Месяцы"}}(jQuery);
+    $('.datepicker').datepicker({
+        format: "dd.mm.yyyy",
+        autoclose: true,
+        language: "ru"
+    });
+});
+
+/* tagsinput && typeahead */
+window.Bloodhound  = require('bloodhound-js');
+require('bootstrap-3-typeahead');
+require('bootstrap-tagsinput');
+

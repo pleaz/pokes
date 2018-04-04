@@ -35,7 +35,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="{{ route('settings') }}">{{ __('messages.settings') }}</a></li>
+                        @auth
+                            <li><a class="nav-link" href="{{ route('settings') }}">{{ __('messages.settings') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('bounty') }}">{{ __('messages.bounty') }}</a></li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

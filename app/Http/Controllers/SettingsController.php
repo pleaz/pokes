@@ -4,82 +4,51 @@ namespace App\Http\Controllers;
 
 use App\Settings;
 use Illuminate\Http\Request;
+use Twitter;
+use Auth;
+use Redirect;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        if($user->twitter){
+            if($user->twitter->oauth_token){
+                Twitter::reconfig(['token'  => $user->twitter->oauth_token, 'secret' => $user->twitter->oauth_token_secret]);
+                $twitter = Twitter::getCredentials();
+            }
+        }
+
+        return view('settings', compact('user', 'twitter'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function save(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $this->validate($request, [
+            'template-twitter' => 'max:2550',
+            'template-facebook' => 'max:2550'
+        ]);
+
+        $settings = Settings::firstOrNew([
+            'user_id' => $user->id
+        ]);
+        $settings->user_id = $user->id;
+        $settings->twitter_template = $request['template-twitter'];
+        $settings->facebook_template = $request['template-facebook'];
+        $settings->save();
+
+        return Redirect::route('settings')->with('status', 'Saved!');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Settings $settings)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Settings $settings)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Settings $settings)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Settings $settings)
-    {
-        //
-    }
 }

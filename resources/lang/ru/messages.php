@@ -23,4 +23,5 @@ return [
     'logout' => 'Выйти',
     'home' => 'На главную',
     'settings' => 'Настройки',
+    'bounty' => 'Bounty',
 ];

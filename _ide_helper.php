@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.14 on 2018-03-29 00:37:06.
+ * Generated for Laravel 5.6.15 on 2018-04-04 13:06:55.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -12418,6 +12418,2837 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Thujohn\Twitter\Facades { 
+
+    class Twitter {
+        
+        /**
+         * Set new config values for the OAuth class like different tokens.
+         *
+         * @param Array $config An array containing the values that should be overwritten.
+         * @return void 
+         * @static 
+         */ 
+        public static function reconfig($config)
+        {
+            \Thujohn\Twitter\Twitter::reconfig($config);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function logs()
+        {
+            return \Thujohn\Twitter\Twitter::logs();
+        }
+        
+        /**
+         * Get a request_token from Twitter
+         *
+         * @param String $oauth_callback [Optional] The callback provided for Twitter's API. The user will be redirected there after authorizing your app on Twitter.
+         * @returns Array|Bool a key/value array containing oauth_token and oauth_token_secret in case of success
+         * @static 
+         */ 
+        public static function getRequestToken($oauth_callback = null)
+        {
+            return \Thujohn\Twitter\Twitter::getRequestToken($oauth_callback);
+        }
+        
+        /**
+         * Get an access token for a logged in user
+         *
+         * @returns Array|Bool key/value array containing the token in case of success
+         * @static 
+         */ 
+        public static function getAccessToken($oauth_verifier = null)
+        {
+            return \Thujohn\Twitter\Twitter::getAccessToken($oauth_verifier);
+        }
+        
+        /**
+         * Get the authorize URL
+         *
+         * @returns string
+         * @static 
+         */ 
+        public static function getAuthorizeURL($token, $sign_in_with_twitter = true, $force_login = false)
+        {
+            return \Thujohn\Twitter\Twitter::getAuthorizeURL($token, $sign_in_with_twitter, $force_login);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function query($name, $requestMethod = 'GET', $parameters = array(), $multipart = false, $extension = 'json')
+        {
+            return \Thujohn\Twitter\Twitter::query($name, $requestMethod, $parameters, $multipart, $extension);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function get($name, $parameters = array(), $multipart = false, $extension = 'json')
+        {
+            return \Thujohn\Twitter\Twitter::get($name, $parameters, $multipart, $extension);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function post($name, $parameters = array(), $multipart = false)
+        {
+            return \Thujohn\Twitter\Twitter::post($name, $parameters, $multipart);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkify($tweet)
+        {
+            return \Thujohn\Twitter\Twitter::linkify($tweet);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function ago($timestamp)
+        {
+            return \Thujohn\Twitter\Twitter::ago($timestamp);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkUser($user)
+        {
+            return \Thujohn\Twitter\Twitter::linkUser($user);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkTweet($tweet)
+        {
+            return \Thujohn\Twitter\Twitter::linkTweet($tweet);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkRetweet($tweet)
+        {
+            return \Thujohn\Twitter\Twitter::linkRetweet($tweet);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkAddTweetToFavorites($tweet)
+        {
+            return \Thujohn\Twitter\Twitter::linkAddTweetToFavorites($tweet);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function linkReply($tweet)
+        {
+            return \Thujohn\Twitter\Twitter::linkReply($tweet);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function error()
+        {
+            return \Thujohn\Twitter\Twitter::error();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setError($code, $message)
+        {
+            return \Thujohn\Twitter\Twitter::setError($code, $message);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function reconfigure($config = array())
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::reconfigure($config);
+        }
+        
+        /**
+         * Extracts and decodes OAuth parameters from the passed string
+         *
+         * @param string $body the response body from an OAuth flow method
+         * @return array the response body safely decoded to an array of key => values
+         * @static 
+         */ 
+        public static function extract_params($body)
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::extract_params($body);
+        }
+        
+        /**
+         * Create the bearer token for OAuth2 requests from the consumer_key and consumer_secret.
+         *
+         * @return string the bearer token
+         * @static 
+         */ 
+        public static function bearer_token_credentials()
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::bearer_token_credentials();
+        }
+        
+        /**
+         * Make an HTTP request using this library. This method doesn't return anything.
+         * 
+         * Instead the response should be inspected directly.
+         *
+         * @param string $method the HTTP method being used. e.g. POST, GET, HEAD etc
+         * @param string $url the request URL without query string parameters
+         * @param array $params the request parameters as an array of key=value pairs. Default empty array
+         * @param string $useauth whether to use authentication when making the request. Default true
+         * @param string $multipart whether this request contains multipart data. Default false
+         * @param array $headers any custom headers to send with the request. Default empty array
+         * @return int the http response code for the request. 0 is returned if a connection could not be made
+         * @static 
+         */ 
+        public static function request($method, $url, $params = array(), $useauth = true, $multipart = false, $headers = array())
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::request($method, $url, $params, $useauth, $multipart, $headers);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function apponly_request($options = array())
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::apponly_request($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function user_request($options = array())
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::user_request($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function unauthenticated_request($options = array())
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::unauthenticated_request($options);
+        }
+        
+        /**
+         * Make a long poll HTTP request using this library. This method is
+         * different to the other request methods as it isn't supposed to disconnect
+         * 
+         * Using this method expects a callback which will receive the streaming
+         * responses.
+         *
+         * @param string $method the HTTP method being used. e.g. POST, GET, HEAD etc
+         * @param string $url the request URL without query string parameters
+         * @param array $params the request parameters as an array of key=value pairs
+         * @param string $callback the callback function to stream the buffer to.
+         * @return void 
+         * @static 
+         */ 
+        public static function streaming_request($method, $url, $params = array(), $callback = '')
+        {
+            //Method inherited from \tmhOAuth            
+            \Thujohn\Twitter\Twitter::streaming_request($method, $url, $params, $callback);
+        }
+        
+        /**
+         * Utility function to create the request URL in the requested format.
+         * 
+         * If a fully-qualified URI is provided, it will be returned.
+         * Any multi-slashes (except for the protocol) will be replaced with a single slash.
+         *
+         * @param string $request the API method without extension
+         * @param string $extension the format of the response. Default json. Set to an empty string to exclude the format
+         * @return string the concatenation of the host, API version, API method and format, or $request if it begins with http
+         * @static 
+         */ 
+        public static function url($request, $extension = 'json')
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::url($request, $extension);
+        }
+        
+        /**
+         * Public access to the private safe decode/encode methods
+         *
+         * @param string $text the text to transform
+         * @param string $mode the transformation mode. either encode or decode
+         * @return string $text transformed by the given $mode
+         * @static 
+         */ 
+        public static function transformText($text, $mode = 'encode')
+        {
+            //Method inherited from \tmhOAuth            
+            return \Thujohn\Twitter\Twitter::transformText($text, $mode);
+        }
+        
+        /**
+         * Returns settings (including current trend, geo and sleep time information) for the authenticating user.
+         *
+         * @static 
+         */ 
+        public static function getSettings($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getSettings($parameters);
+        }
+        
+        /**
+         * Returns an HTTP 200 OK response code and a representation of the requesting user if authentication was successful; returns a 401 status code and an error message if not. Use this method to test if supplied user credentials are valid.
+         * 
+         * Parameters :
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getCredentials($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getCredentials($parameters);
+        }
+        
+        /**
+         * Updates the authenticating user’s settings.
+         * 
+         * Parameters :
+         * - trend_location_woeid
+         * - sleep_time_enabled (0|1)
+         * - start_sleep_time
+         * - end_sleep_time
+         * - time_zone
+         * - lang
+         *
+         * @static 
+         */ 
+        public static function postSettings($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postSettings($parameters);
+        }
+        
+        /**
+         * Sets which device Twitter delivers updates to for the authenticating user. Sending none as the device parameter will disable SMS updates.
+         * 
+         * Parameters :
+         * - device (sms|none)
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function postSettingsDevice($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postSettingsDevice($parameters);
+        }
+        
+        /**
+         * Sets some values that users are able to set under the “Account” tab of their settings page. Only the parameters specified will be updated.
+         * 
+         * Parameters :
+         * - name
+         * - url
+         * - location
+         * - description (0-160)
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function postProfile($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postProfile($parameters);
+        }
+        
+        /**
+         * Updates the authenticating user’s profile background image. This method can also be used to enable or disable the profile background image.
+         * 
+         * Parameters :
+         * - image
+         * - tile
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         * - use (0|1)
+         *
+         * @static 
+         */ 
+        public static function postBackground($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postBackground($parameters);
+        }
+        
+        /**
+         * Updates the authenticating user’s profile image. Note that this method expects raw multipart data, not a URL to an image.
+         * 
+         * Parameters :
+         * - image
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function postProfileImage($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postProfileImage($parameters);
+        }
+        
+        /**
+         * Removes the uploaded profile banner for the authenticating user. Returns HTTP 200 upon success.
+         *
+         * @static 
+         */ 
+        public static function destroyUserBanner($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyUserBanner($parameters);
+        }
+        
+        /**
+         * Uploads a profile banner on behalf of the authenticating user. For best results, upload an profile_banner_url node in their Users objects. More information about sizing variations can be found in User Profile Images and Banners and GET users / profile_banner.
+         * 
+         * Parameters :
+         * - banner
+         * - width
+         * - height
+         * - offset_left
+         * - offset_top
+         *
+         * @static 
+         */ 
+        public static function postUserBanner($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postUserBanner($parameters);
+        }
+        
+        /**
+         * Returns a collection of user objects that the authenticating user is blocking.
+         * 
+         * Parameters :
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         * - cursor
+         *
+         * @static 
+         */ 
+        public static function getBlocks($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getBlocks($parameters);
+        }
+        
+        /**
+         * Returns an array of numeric user ids the authenticating user is blocking.
+         * 
+         * Parameters :
+         * - stringify_ids (0|1)
+         * - cursor
+         *
+         * @static 
+         */ 
+        public static function getBlocksIds($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getBlocksIds($parameters);
+        }
+        
+        /**
+         * Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function postBlock($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postBlock($parameters);
+        }
+        
+        /**
+         * Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function destroyBlock($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyBlock($parameters);
+        }
+        
+        /**
+         * Returns the 20 most recent direct messages sent by the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs.
+         * 
+         * Parameters :
+         * - since_id
+         * - max_id
+         * - count (1-200)
+         * - page
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getDmsOut($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getDmsOut($parameters);
+        }
+        
+        /**
+         * Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient.
+         * 
+         * Parameters :
+         * - id
+         *
+         * @static 
+         */ 
+        public static function getDm($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getDm($parameters);
+        }
+        
+        /**
+         * Returns the 20 most recent direct messages sent to the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, and only the most recent 200 DMs will be available using this endpoint.
+         * 
+         * Parameters :
+         * - since_id
+         * - max_id
+         * - count (1-200)
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getDmsIn($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getDmsIn($parameters);
+        }
+        
+        /**
+         * Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message.
+         * 
+         * Parameters :
+         * - id
+         * - include_entities
+         *
+         * @static 
+         */ 
+        public static function destroyDm($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyDm($parameters);
+        }
+        
+        /**
+         * Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - text
+         *
+         * @static 
+         */ 
+        public static function postDm($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postDm($parameters);
+        }
+        
+        /**
+         * Returns the 20 most recent Tweets favorited by the authenticating or specified user.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - count (1-200)
+         * - since_id
+         * - max_id
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getFavorites($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFavorites($parameters);
+        }
+        
+        /**
+         * Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.
+         * 
+         * Parameters :
+         * - id
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function destroyFavorite($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyFavorite($parameters);
+        }
+        
+        /**
+         * Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.
+         * 
+         * Parameters :
+         * - id
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function postFavorite($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postFavorite($parameters);
+        }
+        
+        /**
+         * Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.
+         * 
+         * Parameters :
+         * - stringify_ids (0|1)
+         *
+         * @static 
+         */ 
+        public static function getNoRters($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getNoRters($parameters);
+        }
+        
+        /**
+         * Returns a cursored collection of user IDs for every user following the specified user.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - cursor
+         * - stringify_ids (0|1)
+         * - count (1-5000)
+         *
+         * @static 
+         */ 
+        public static function getFriendsIds($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriendsIds($parameters);
+        }
+        
+        /**
+         * Returns a cursored collection of user IDs for every user following the specified user.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - cursor
+         * - stringify_ids (0|1)
+         * - count (1-5000)
+         *
+         * @static 
+         */ 
+        public static function getFollowersIds($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFollowersIds($parameters);
+        }
+        
+        /**
+         * Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
+         * 
+         * Parameters :
+         * - cursor
+         * - stringify_ids (0|1)
+         *
+         * @static 
+         */ 
+        public static function getFriendshipsIn($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriendshipsIn($parameters);
+        }
+        
+        /**
+         * Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.
+         * 
+         * Parameters :
+         * - cursor
+         * - stringify_ids (0|1)
+         *
+         * @static 
+         */ 
+        public static function getFriendshipsOut($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriendshipsOut($parameters);
+        }
+        
+        /**
+         * Allows the authenticating users to follow the user specified in the ID parameter.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         * - follow (0|1)
+         *
+         * @static 
+         */ 
+        public static function postFollow($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postFollow($parameters);
+        }
+        
+        /**
+         * Allows the authenticating user to unfollow the user specified in the ID parameter.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         *
+         * @static 
+         */ 
+        public static function postUnfollow($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postUnfollow($parameters);
+        }
+        
+        /**
+         * Allows one to enable or disable retweets and device notifications from the specified user.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         * - device (0|1)
+         * - retweets (0|1)
+         *
+         * @static 
+         */ 
+        public static function postFollowUpdate($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postFollowUpdate($parameters);
+        }
+        
+        /**
+         * Returns detailed information about the relationship between two arbitrary users.
+         * 
+         * Parameters :
+         * - source_id
+         * - source_screen_name
+         * - target_id
+         * - target_screen_name
+         *
+         * @static 
+         */ 
+        public static function getFriendships($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriendships($parameters);
+        }
+        
+        /**
+         * Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - cursor
+         * - skip_status (0|1)
+         * - include_user_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getFriends($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriends($parameters);
+        }
+        
+        /**
+         * Returns a cursored collection of user objects for users following the specified user.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - cursor
+         * - skip_status (0|1)
+         * - include_user_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getFollowers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFollowers($parameters);
+        }
+        
+        /**
+         * Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none, blocking, muting.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         *
+         * @static 
+         */ 
+        public static function getFriendshipsLookup($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getFriendshipsLookup($parameters);
+        }
+        
+        /**
+         * Returns all the information about a known place.
+         *
+         * @static 
+         */ 
+        public static function getGeo($id)
+        {
+            return \Thujohn\Twitter\Twitter::getGeo($id);
+        }
+        
+        /**
+         * Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.
+         * 
+         * Parameters :
+         * - lat
+         * - long
+         * - accuracy
+         * - granularity (poi|neighborhood|city|admin|country)
+         * - max_results
+         * - callback
+         *
+         * @static 
+         */ 
+        public static function getGeoReverse($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getGeoReverse($parameters);
+        }
+        
+        /**
+         * Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.
+         * 
+         * Parameters :
+         * - lat
+         * - long
+         * - query
+         * - ip
+         * - granularity (poi|neighborhood|city|admin|country)
+         * - accuracy
+         * - max_results
+         * - contained_within
+         * - attribute:street_address
+         * - callback
+         *
+         * @static 
+         */ 
+        public static function getGeoSearch($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getGeoSearch($parameters);
+        }
+        
+        /**
+         * Locates places near the given coordinates which are similar in name. Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one. The token contained in the response is the token needed to be able to create a new place.
+         * 
+         * Parameters :
+         * - lat
+         * - long
+         * - name
+         * - contained_within
+         * - attribute:street_address
+         * - callback
+         *
+         * @static 
+         */ 
+        public static function getGeoSimilar($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getGeoSimilar($parameters);
+        }
+        
+        /**
+         * Report the specified user as a spam account to Twitter. Additionally performs the equivalent of POST blocks / create on behalf of the authenticated user.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         *
+         * @static 
+         */ 
+        public static function postSpam($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postSpam($parameters);
+        }
+        
+        /**
+         * Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.
+         *
+         * @static 
+         */ 
+        public static function getHelpConfiguration($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getHelpConfiguration($parameters);
+        }
+        
+        /**
+         * Returns the list of languages supported by Twitter along with the language code supported by Twitter.
+         *
+         * @static 
+         */ 
+        public static function getHelpLanguages($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getHelpLanguages($parameters);
+        }
+        
+        /**
+         * Returns Twitter’s Privacy Policy.
+         *
+         * @static 
+         */ 
+        public static function getHelpPrivacy($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getHelpPrivacy($parameters);
+        }
+        
+        /**
+         * Returns the Twitter Terms of Service. Note: these are not the same as the Developer Policy.
+         *
+         * @static 
+         */ 
+        public static function getHelpTos($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getHelpTos($parameters);
+        }
+        
+        /**
+         * Returns the current rate limits for methods belonging to the specified resource families.
+         *
+         * @static 
+         */ 
+        public static function getAppRateLimit($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getAppRateLimit($parameters);
+        }
+        
+        /**
+         * Returns all lists the authenticating or specified user subscribes to, including their own. The user is specified using the user_id or screen_name parameters. If no user is given, the authenticating user is used.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - reverse (0|1)
+         *
+         * @static 
+         */ 
+        public static function getLists($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getLists($parameters);
+        }
+        
+        /**
+         * Returns a timeline of tweets authored by members of the specified list. Retweets are included by default. Use the include_rts=false parameter to omit retweets.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - since_id
+         * - max_id
+         * - count
+         * - include_entities (0|1)
+         * - include_rts (0|1)
+         *
+         * @static 
+         */ 
+        public static function getListStatuses($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListStatuses($parameters);
+        }
+        
+        /**
+         * Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - user_id
+         * - screen_name
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function destroyListMember($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyListMember($parameters);
+        }
+        
+        /**
+         * Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - count
+         * - cursor
+         * - filter_to_owned_lists
+         *
+         * @static 
+         */ 
+        public static function getListsMemberships($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListsMemberships($parameters);
+        }
+        
+        /**
+         * Returns the subscribers of the specified list. Private list subscribers will only be shown if the authenticated user owns the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - cursor
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getListsSubscribers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListsSubscribers($parameters);
+        }
+        
+        /**
+         * Subscribes the authenticated user to the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function postListSubscriber($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postListSubscriber($parameters);
+        }
+        
+        /**
+         * Returns the subscribers of the specified list. Private list subscribers will only be shown if the authenticated user owns the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - user_id
+         * - screen_name
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getListSubscriber($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListSubscriber($parameters);
+        }
+        
+        /**
+         * Unsubscribes the authenticated user from the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function destroyListSubscriber($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyListSubscriber($parameters);
+        }
+        
+        /**
+         * Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can’t have more than 5,000 members, and you are limited to adding up to 100 members to a list at a time with this method.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - user_id
+         * - screen_name
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function postListCreateAll($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postListCreateAll($parameters);
+        }
+        
+        /**
+         * Check if the specified user is a member of the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - user_id
+         * - screen_name
+         * - owner_screen_name
+         * - owner_id
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getListMember($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListMember($parameters);
+        }
+        
+        /**
+         * Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - cursor
+         * - include_entities (0|1)
+         * - skip_status (0|1)
+         *
+         * @static 
+         */ 
+        public static function getListMembers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListMembers($parameters);
+        }
+        
+        /**
+         * Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists cannot have more than 5,000 members.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - user_id
+         * - screen_name
+         *
+         * @static 
+         */ 
+        public static function postListMember($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postListMember($parameters);
+        }
+        
+        /**
+         * Deletes the specified list. The authenticated user must own the list to be able to destroy it.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function destroyList($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyList($parameters);
+        }
+        
+        /**
+         * Updates the specified list. The authenticated user must own the list to be able to update it.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - name (1-25)
+         * - mode (public|private)
+         * - description
+         *
+         * @static 
+         */ 
+        public static function postListUpdate($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postListUpdate($parameters);
+        }
+        
+        /**
+         * Creates a new list for the authenticated user. Note that you can’t create more than 20 lists per account.
+         * 
+         * Parameters :
+         * - name (1-25)
+         * - mode (public|private)
+         * - description
+         *
+         * @static 
+         */ 
+        public static function postList($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postList($parameters);
+        }
+        
+        /**
+         * Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         *
+         * @static 
+         */ 
+        public static function getList($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getList($parameters);
+        }
+        
+        /**
+         * Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user’s own lists.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - count (1-1000)
+         * - cursor
+         *
+         * @static 
+         */ 
+        public static function getListSubscriptions($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListSubscriptions($parameters);
+        }
+        
+        /**
+         * Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
+         * 
+         * Parameters :
+         * - list_id
+         * - slug
+         * - owner_screen_name
+         * - owner_id
+         * - user_id
+         * - screen_name
+         *
+         * @static 
+         */ 
+        public static function destroyListMembers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyListMembers($parameters);
+        }
+        
+        /**
+         * Returns the lists owned by the specified Twitter user. Private lists will only be shown if the authenticated user is also the owner of the lists.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - count (1-1000)
+         * - cursor
+         *
+         * @static 
+         */ 
+        public static function getListOwnerships($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getListOwnerships($parameters);
+        }
+        
+        /**
+         * Upload media (images) to Twitter, to use in a Tweet or Twitter-hosted Card.
+         * 
+         * Parameters :
+         * - media
+         * - media_data
+         *
+         * @static 
+         */ 
+        public static function uploadMedia($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::uploadMedia($parameters);
+        }
+        
+        /**
+         * Returns a collection of relevant Tweets matching a specified query.
+         * 
+         * Parameters :
+         * - q
+         * - geocode
+         * - lang
+         * - locale
+         * - result_type (mixed|recent|popular)
+         * - count (1-100)
+         * - until (YYYY-MM-DD)
+         * - since_id
+         * - max_id
+         * - include_entities (0|1)
+         * - callback
+         *
+         * @static 
+         */ 
+        public static function getSearch($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getSearch($parameters);
+        }
+        
+        /**
+         * Returns the authenticated user’s saved search queries.
+         *
+         * @static 
+         */ 
+        public static function getSavedSearches()
+        {
+            return \Thujohn\Twitter\Twitter::getSavedSearches();
+        }
+        
+        /**
+         * Retrieve the information for the saved search represented by the given id. The authenticating user must be the owner of saved search ID being requested.
+         *
+         * @static 
+         */ 
+        public static function getSavedSearch($id)
+        {
+            return \Thujohn\Twitter\Twitter::getSavedSearch($id);
+        }
+        
+        /**
+         * Create a new saved search for the authenticated user. A user may only have 25 saved searches.
+         * 
+         * Parameters :
+         * - query
+         *
+         * @static 
+         */ 
+        public static function postSavedSearch($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postSavedSearch($parameters);
+        }
+        
+        /**
+         * Destroys a saved search for the authenticating user. The authenticating user must be the owner of saved search id being destroyed.
+         *
+         * @static 
+         */ 
+        public static function destroySavedSearch($id, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroySavedSearch($id, $parameters);
+        }
+        
+        /**
+         * Returns the 20 most recent mentions (tweets containing a users’s @screen_name) for the authenticating user.
+         * 
+         * Parameters :
+         * - count (1-200)
+         * - include_rts (0|1)
+         * - since_id
+         * - max_id
+         * - trim_user (0|1)
+         * - contributor_details (0|1)
+         * - include_entities (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getMentionsTimeline($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getMentionsTimeline($parameters);
+        }
+        
+        /**
+         * Returns a collection of the most recent Tweets (truncated by default) posted by the user indicated by the screen_name or user_id parameters.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - since_id
+         * - count (1-200)
+         * - include_rts (0|1)
+         * - max_id
+         * - trim_user (0|1)
+         * - exclude_replies (0|1)
+         * - contributor_details (0|1)
+         * - include_entities (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getUserTimeline($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getUserTimeline($parameters);
+        }
+        
+        /**
+         * Returns a collection of the most recent Tweets (truncated by default) and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service.
+         * 
+         * Parameters :
+         * - count (1-200)
+         * - since_id
+         * - max_id
+         * - trim_user (0|1)
+         * - exclude_replies (0|1)
+         * - contributor_details (0|1)
+         * - include_entities (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getHomeTimeline($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getHomeTimeline($parameters);
+        }
+        
+        /**
+         * Returns the most recent tweets authored by the authenticating user that have been retweeted by others.
+         * 
+         * Parameters :
+         * - count (1-200)
+         * - since_id
+         * - max_id
+         * - trim_user (0|1)
+         * - include_entities (0|1)
+         * - include_user_entities (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getRtsTimeline($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getRtsTimeline($parameters);
+        }
+        
+        /**
+         * Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
+         * 
+         * Parameters :
+         * - count (1-200)
+         * - trim_user (0|1)
+         *
+         * @static 
+         */ 
+        public static function getRts($id, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getRts($id, $parameters);
+        }
+        
+        /**
+         * Returns a single Tweet, specified by the id parameter. The Tweet’s author will also be embedded within the tweet.
+         * 
+         * Parameters :
+         * - count (1-200)
+         * - trim_user (0|1)
+         * - include_my_retweet (0|1)
+         * - include_entities (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getTweet($id, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getTweet($id, $parameters);
+        }
+        
+        /**
+         * Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful.
+         * 
+         * Parameters :
+         * - trim_user (0|1)
+         *
+         * @static 
+         */ 
+        public static function destroyTweet($id, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::destroyTweet($id, $parameters);
+        }
+        
+        /**
+         * Updates the authenticating user’s current status, also known as tweeting.
+         * 
+         * Parameters :
+         * - status
+         * - in_reply_to_status_id
+         * - lat
+         * - long
+         * - place_id
+         * - display_coordinates (0|1)
+         * - trim_user (0|1)
+         * - media_ids
+         *
+         * @static 
+         */ 
+        public static function postTweet($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postTweet($parameters);
+        }
+        
+        /**
+         * Retweets a tweet. Returns the original tweet with retweet details embedded.
+         * 
+         * Parameters :
+         * - trim_user (0|1)
+         *
+         * @static 
+         */ 
+        public static function postRt($id, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postRt($id, $parameters);
+        }
+        
+        /**
+         * Updates the authenticating user’s current status and attaches media for upload. In other words, it creates a Tweet with a picture attached.
+         * 
+         * DEPRECATED
+         * 
+         * Parameters :
+         * - status
+         * - media[]
+         * - possibly_sensitive
+         * - in_reply_to_status_id
+         * - lat
+         * - long
+         * - place_id
+         * - display_coordinates (0|1)
+         *
+         * @static 
+         */ 
+        public static function postTweetMedia($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::postTweetMedia($parameters);
+        }
+        
+        /**
+         * Returns a single Tweet, specified by a Tweet web URL, in an oEmbed-compatible format. The returned HTML snippet will be automatically recognized as an Embedded Tweet when Twitter’s widget JavaScript is included on the page.
+         * 
+         * Parameters :
+         * - url
+         * - maxwidth (250-550)
+         * - hide_thread (0|1)
+         * - omit_script (0|1)
+         * - align (left|right|center|none)
+         * - related (twitterapi|twittermedia|twitter)
+         * - lang
+         * - theme (dark|light)
+         * - link_color (hex value)
+         * - widget_type (video)
+         *
+         * @static 
+         */ 
+        public static function getOembed($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getOembed($parameters);
+        }
+        
+        /**
+         * Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.
+         * 
+         * Parameters :
+         * - id
+         * - cursor
+         * - stringify_ids (0|1)
+         *
+         * @static 
+         */ 
+        public static function getRters($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getRters($parameters);
+        }
+        
+        /**
+         * Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by comma-separated values passed to the id parameter.
+         * 
+         * Parameters :
+         * - id
+         * - include_entities (0|1)
+         * - trim_user (0|1)
+         * - map (0|1)
+         * - tweet_mode ('extended' returns a collection of Tweets, which are not truncated)
+         *
+         * @static 
+         */ 
+        public static function getStatusesLookup($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getStatusesLookup($parameters);
+        }
+        
+        /**
+         * Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.
+         * 
+         * Parameters :
+         * - id
+         * - exclude
+         *
+         * @static 
+         */ 
+        public static function getTrendsPlace($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getTrendsPlace($parameters);
+        }
+        
+        /**
+         * Returns the locations that Twitter has trending topic information for.
+         *
+         * @static 
+         */ 
+        public static function getTrendsAvailable($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getTrendsAvailable($parameters);
+        }
+        
+        /**
+         * Returns the locations that Twitter has trending topic information for, closest to a specified location.
+         * 
+         * Parameters :
+         * - lat
+         * - long
+         *
+         * @static 
+         */ 
+        public static function getTrendsClosest($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getTrendsClosest($parameters);
+        }
+        
+        /**
+         * Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getUsersLookup($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getUsersLookup($parameters);
+        }
+        
+        /**
+         * Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author’s most recent Tweet will be returned inline when possible.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getUsers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getUsers($parameters);
+        }
+        
+        /**
+         * Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported.
+         * 
+         * Parameters :
+         * - q
+         * - page
+         * - count
+         * - include_entities (0|1)
+         *
+         * @static 
+         */ 
+        public static function getUsersSearch($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getUsersSearch($parameters);
+        }
+        
+        /**
+         * Returns a map of the available size variations of the specified user’s profile banner. If the user has not uploaded a profile banner, a HTTP 404 will be served instead. This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
+         * 
+         * Parameters :
+         * - user_id
+         * - screen_name
+         *
+         * @static 
+         */ 
+        public static function getUserBanner($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getUserBanner($parameters);
+        }
+        
+        /**
+         * Mutes the user specified in the ID parameter for the authenticating user.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         *
+         * @static 
+         */ 
+        public static function muteUser($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::muteUser($parameters);
+        }
+        
+        /**
+         * Un-mutes the user specified in the ID parameter for the authenticating user.
+         * 
+         * Parameters :
+         * - screen_name
+         * - user_id
+         *
+         * @static 
+         */ 
+        public static function unmuteUser($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::unmuteUser($parameters);
+        }
+        
+        /**
+         * Returns an array of numeric user ids the authenticating user has muted.
+         * 
+         * Parameters :
+         * - cursor
+         *
+         * @static 
+         */ 
+        public static function mutedUserIds($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::mutedUserIds($parameters);
+        }
+        
+        /**
+         * Returns an array of user objects the authenticating user has muted.
+         * 
+         * Parameters :
+         * - cursor
+         * - include_entities
+         * - skip_status
+         *
+         * @static 
+         */ 
+        public static function mutedUsers($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::mutedUsers($parameters);
+        }
+        
+        /**
+         * Access the users in a given category of the Twitter suggested user list.
+         * 
+         * Parameters :
+         * - lang
+         *
+         * @static 
+         */ 
+        public static function getSuggesteds($slug, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getSuggesteds($slug, $parameters);
+        }
+        
+        /**
+         * Access to Twitter’s suggested user list. This returns the list of suggested user categories. The category can be used in GET users / suggestions / :slug to get the users in that category.
+         * 
+         * Parameters :
+         * - lang
+         *
+         * @static 
+         */ 
+        public static function getSuggestions($parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getSuggestions($parameters);
+        }
+        
+        /**
+         * Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.
+         *
+         * @static 
+         */ 
+        public static function getSuggestedsMembers($slug, $parameters = array())
+        {
+            return \Thujohn\Twitter\Twitter::getSuggestedsMembers($slug, $parameters);
+        }
+         
+    }
+ 
+}
+
+namespace Collective\Html { 
+
+    class FormFacade {
+        
+        /**
+         * Open up a new HTML form.
+         *
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function open($options = array())
+        {
+            return \Collective\Html\FormBuilder::open($options);
+        }
+        
+        /**
+         * Create a new model based form builder.
+         *
+         * @param mixed $model
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function model($model, $options = array())
+        {
+            return \Collective\Html\FormBuilder::model($model, $options);
+        }
+        
+        /**
+         * Set the model instance on the form builder.
+         *
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */ 
+        public static function setModel($model)
+        {
+            \Collective\Html\FormBuilder::setModel($model);
+        }
+        
+        /**
+         * Get the current model instance on the form builder.
+         *
+         * @return mixed $model
+         * @static 
+         */ 
+        public static function getModel()
+        {
+            return \Collective\Html\FormBuilder::getModel();
+        }
+        
+        /**
+         * Close the current form.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function close()
+        {
+            return \Collective\Html\FormBuilder::close();
+        }
+        
+        /**
+         * Generate a hidden field with the current CSRF token.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function token()
+        {
+            return \Collective\Html\FormBuilder::token();
+        }
+        
+        /**
+         * Create a form label element.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @param bool $escape_html
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function label($name, $value = null, $options = array(), $escape_html = true)
+        {
+            return \Collective\Html\FormBuilder::label($name, $value, $options, $escape_html);
+        }
+        
+        /**
+         * Create a form input field.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function input($type, $name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::input($type, $name, $value, $options);
+        }
+        
+        /**
+         * Create a text input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function text($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::text($name, $value, $options);
+        }
+        
+        /**
+         * Create a password input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function password($name, $options = array())
+        {
+            return \Collective\Html\FormBuilder::password($name, $options);
+        }
+        
+        /**
+         * Create a hidden input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function hidden($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::hidden($name, $value, $options);
+        }
+        
+        /**
+         * Create a search input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function search($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::search($name, $value, $options);
+        }
+        
+        /**
+         * Create an e-mail input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function email($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::email($name, $value, $options);
+        }
+        
+        /**
+         * Create a tel input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tel($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::tel($name, $value, $options);
+        }
+        
+        /**
+         * Create a number input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function number($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::number($name, $value, $options);
+        }
+        
+        /**
+         * Create a date input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function date($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::date($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetime($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::datetime($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime-local input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetimeLocal($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::datetimeLocal($name, $value, $options);
+        }
+        
+        /**
+         * Create a time input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function time($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::time($name, $value, $options);
+        }
+        
+        /**
+         * Create a url input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function url($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::url($name, $value, $options);
+        }
+        
+        /**
+         * Create a file input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function file($name, $options = array())
+        {
+            return \Collective\Html\FormBuilder::file($name, $options);
+        }
+        
+        /**
+         * Create a textarea input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function textarea($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::textarea($name, $value, $options);
+        }
+        
+        /**
+         * Create a select box field.
+         *
+         * @param string $name
+         * @param array $list
+         * @param string|bool $selected
+         * @param array $selectAttributes
+         * @param array $optionsAttributes
+         * @param array $optgroupsAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function select($name, $list = array(), $selected = null, $selectAttributes = array(), $optionsAttributes = array(), $optgroupsAttributes = array())
+        {
+            return \Collective\Html\FormBuilder::select($name, $list, $selected, $selectAttributes, $optionsAttributes, $optgroupsAttributes);
+        }
+        
+        /**
+         * Create a select range field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectRange($name, $begin, $end, $selected = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::selectRange($name, $begin, $end, $selected, $options);
+        }
+        
+        /**
+         * Create a select year field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return mixed 
+         * @static 
+         */ 
+        public static function selectYear()
+        {
+            return \Collective\Html\FormBuilder::selectYear();
+        }
+        
+        /**
+         * Create a select month field.
+         *
+         * @param string $name
+         * @param string $selected
+         * @param array $options
+         * @param string $format
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B')
+        {
+            return \Collective\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
+        }
+        
+        /**
+         * Get the select option for the given value.
+         *
+         * @param string $display
+         * @param string $value
+         * @param string $selected
+         * @param array $attributes
+         * @param array $optgroupAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function getSelectOption($display, $value, $selected, $attributes = array(), $optgroupAttributes = array())
+        {
+            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected, $attributes, $optgroupAttributes);
+        }
+        
+        /**
+         * Create a checkbox input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function checkbox($name, $value = 1, $checked = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::checkbox($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a radio button input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function radio($name, $value = null, $checked = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::radio($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a HTML reset input element.
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function reset($value, $attributes = array())
+        {
+            return \Collective\Html\FormBuilder::reset($value, $attributes);
+        }
+        
+        /**
+         * Create a HTML image input element.
+         *
+         * @param string $url
+         * @param string $name
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $name = null, $attributes = array())
+        {
+            return \Collective\Html\FormBuilder::image($url, $name, $attributes);
+        }
+        
+        /**
+         * Create a color input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function color($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::color($name, $value, $options);
+        }
+        
+        /**
+         * Create a submit button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function submit($value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::submit($value, $options);
+        }
+        
+        /**
+         * Create a button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function button($value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::button($value, $options);
+        }
+        
+        /**
+         * Get the ID attribute for a field name.
+         *
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function getIdAttribute($name, $attributes)
+        {
+            return \Collective\Html\FormBuilder::getIdAttribute($name, $attributes);
+        }
+        
+        /**
+         * Get the value that should be assigned to the field.
+         *
+         * @param string $name
+         * @param string $value
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getValueAttribute($name, $value = null)
+        {
+            return \Collective\Html\FormBuilder::getValueAttribute($name, $value);
+        }
+        
+        /**
+         * Get a value from the session's old input.
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function old($name)
+        {
+            return \Collective\Html\FormBuilder::old($name);
+        }
+        
+        /**
+         * Determine if the old input is empty.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function oldInputIsEmpty()
+        {
+            return \Collective\Html\FormBuilder::oldInputIsEmpty();
+        }
+        
+        /**
+         * Get the session store implementation.
+         *
+         * @return \Illuminate\Contracts\Session\Session $session
+         * @static 
+         */ 
+        public static function getSessionStore()
+        {
+            return \Collective\Html\FormBuilder::getSessionStore();
+        }
+        
+        /**
+         * Set the session store implementation.
+         *
+         * @param \Illuminate\Contracts\Session\Session $session
+         * @return $this 
+         * @static 
+         */ 
+        public static function setSessionStore($session)
+        {
+            return \Collective\Html\FormBuilder::setSessionStore($session);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            \Collective\Html\FormBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @return void 
+         * @static 
+         */ 
+        public static function mixin($mixin)
+        {
+            \Collective\Html\FormBuilder::mixin($mixin);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            return \Collective\Html\FormBuilder::hasMacro($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+            return \Collective\Html\FormBuilder::macroCall($method, $parameters);
+        }
+        
+        /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+            \Collective\Html\FormBuilder::component($name, $view, $signature);
+        }
+        
+        /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+            return \Collective\Html\FormBuilder::hasComponent($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+            return \Collective\Html\FormBuilder::componentCall($method, $parameters);
+        }
+         
+    }
+
+    class HtmlFacade {
+        
+        /**
+         * Convert an HTML string to entities.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function entities($value)
+        {
+            return \Collective\Html\HtmlBuilder::entities($value);
+        }
+        
+        /**
+         * Convert entities to HTML characters.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function decode($value)
+        {
+            return \Collective\Html\HtmlBuilder::decode($value);
+        }
+        
+        /**
+         * Generate a link to a JavaScript file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function script($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::script($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a link to a CSS file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function style($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::style($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate an HTML image element.
+         *
+         * @param string $url
+         * @param string $alt
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $alt = null, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::image($url, $alt, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a link to a Favicon file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function favicon($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::favicon($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function link($url, $title = null, $attributes = array(), $secure = null, $escape = true)
+        {
+            return \Collective\Html\HtmlBuilder::link($url, $title, $attributes, $secure, $escape);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function secureLink($url, $title = null, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::secureLink($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAsset($url, $title = null, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::linkAsset($url, $title, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkSecureAsset($url, $title = null, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkSecureAsset($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a named route.
+         *
+         * @param string $name
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkRoute($name, $title = null, $parameters = array(), $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkRoute($name, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a controller action.
+         *
+         * @param string $action
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAction($action, $title = null, $parameters = array(), $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkAction($action, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an email address.
+         *
+         * @param string $email
+         * @param string $title
+         * @param array $attributes
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function mailto($email, $title = null, $attributes = array(), $escape = true)
+        {
+            return \Collective\Html\HtmlBuilder::mailto($email, $title, $attributes, $escape);
+        }
+        
+        /**
+         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+         *
+         * @param string $email
+         * @return string 
+         * @static 
+         */ 
+        public static function email($email)
+        {
+            return \Collective\Html\HtmlBuilder::email($email);
+        }
+        
+        /**
+         * Generates non-breaking space entities based on number supplied.
+         *
+         * @param int $num
+         * @return string 
+         * @static 
+         */ 
+        public static function nbsp($num = 1)
+        {
+            return \Collective\Html\HtmlBuilder::nbsp($num);
+        }
+        
+        /**
+         * Generate an ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ol($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::ol($list, $attributes);
+        }
+        
+        /**
+         * Generate an un-ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ul($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::ul($list, $attributes);
+        }
+        
+        /**
+         * Generate a description list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function dl($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::dl($list, $attributes);
+        }
+        
+        /**
+         * Build an HTML attribute string from an array.
+         *
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function attributes($attributes)
+        {
+            return \Collective\Html\HtmlBuilder::attributes($attributes);
+        }
+        
+        /**
+         * Obfuscate a string to prevent spam-bots from sniffing it.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function obfuscate($value)
+        {
+            return \Collective\Html\HtmlBuilder::obfuscate($value);
+        }
+        
+        /**
+         * Generate a meta tag.
+         *
+         * @param string $name
+         * @param string $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function meta($name, $content, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::meta($name, $content, $attributes);
+        }
+        
+        /**
+         * Generate an html tag.
+         *
+         * @param string $tag
+         * @param mixed $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tag($tag, $content, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::tag($tag, $content, $attributes);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            \Collective\Html\HtmlBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @return void 
+         * @static 
+         */ 
+        public static function mixin($mixin)
+        {
+            \Collective\Html\HtmlBuilder::mixin($mixin);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            return \Collective\Html\HtmlBuilder::hasMacro($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+            return \Collective\Html\HtmlBuilder::macroCall($method, $parameters);
+        }
+        
+        /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+            \Collective\Html\HtmlBuilder::component($name, $view, $signature);
+        }
+        
+        /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+            return \Collective\Html\HtmlBuilder::hasComponent($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+            return \Collective\Html\HtmlBuilder::componentCall($method, $parameters);
+        }
+         
+    }
+ 
+}
+
 namespace Mcamara\LaravelLocalization\Facades { 
 
     class LaravelLocalization {
@@ -14962,6 +17793,12 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Twitter extends \Thujohn\Twitter\Facades\Twitter {}
+
+    class Form extends \Collective\Html\FormFacade {}
+
+    class Html extends \Collective\Html\HtmlFacade {}
 
     class LaravelLocalization extends \Mcamara\LaravelLocalization\Facades\LaravelLocalization {}
  

@@ -8,6 +8,13 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Datepicker
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css';
+
+// Tagsinput
+@import '~bootstrap-tagsinput/dist/bootstrap-tagsinput.css';
+
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
