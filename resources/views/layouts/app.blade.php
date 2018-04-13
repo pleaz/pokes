@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -38,6 +38,7 @@
                         @auth
                             <li><a class="nav-link" href="{{ route('settings') }}">{{ __('messages.settings') }}</a></li>
                             <li><a class="nav-link" href="{{ route('bounty') }}">{{ __('messages.bounty') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('reports') }}">{{ __('messages.reports') }}</a></li>
                         @endauth
                     </ul>
 

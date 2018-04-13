@@ -58,7 +58,7 @@ class TwitterController extends Controller
 
             if (!isset($token['oauth_token_secret']))
             {
-                return Redirect::route('twitter.error')->with('status', 'We could not log you in on Twitter.');
+                return Redirect::route('twitter.error')->with('status', __('messages.errors.twitter_login'));
             }
 
             $credentials = Twitter::getCredentials();
@@ -75,12 +75,12 @@ class TwitterController extends Controller
                         $twitter->oauth_token = $token['oauth_token'];
                         $twitter->oauth_token_secret = $token['oauth_token_secret'];
                         $twitter->update();
-                        return Redirect::route('settings')->with('status', 'Congrats! You\'ve successfully signed in!');
+                        return Redirect::route('settings')->with('status', __('messages.status.signed'));
                     } else {
-                        return Redirect::route('twitter.error')->with('status', 'This Twitter account is already registered.');
+                        return Redirect::route('twitter.error')->with('status', __('messages.errors.twitter_exist'));
                     }
                 } elseif($user->twitter) {
-                    return Redirect::route('twitter.error')->with('status', 'This Twitter account cannot be used for your account.');
+                    return Redirect::route('twitter.error')->with('status', __('messages.errors.twitter_in_use'));
                 } else {
                     $twitter = new TwitterModel([
                         'oauth_token' => $token['oauth_token'],
@@ -88,10 +88,10 @@ class TwitterController extends Controller
                         'userid' => $token['user_id']
                     ]);
                     $user->twitter()->save($twitter);
-                    return Redirect::route('settings')->with('status', 'Congrats! You\'ve successfully signed in!');
+                    return Redirect::route('settings')->with('status', __('messages.status.signed'));
                 }
             }
-            return Redirect::route('twitter.error')->with('status', 'Crab! Something went wrong while signing you up!');
+            return Redirect::route('twitter.error')->with('status', __('messages.errors.twitter_error'));
         }
         return Redirect::route('twitter.error');
     }
@@ -99,7 +99,7 @@ class TwitterController extends Controller
     public function error()
     {
         $user = Auth::user();
-        return view('settings', compact('user'));
+        return view('settings.main', compact('user'));
     }
 
     public function logout()
@@ -109,6 +109,6 @@ class TwitterController extends Controller
         $twitter->oauth_token = '';
         $twitter->oauth_token_secret = '';
         $twitter->update();
-        return Redirect::route('settings')->with('status', 'You\'ve successfully logged out!');
+        return Redirect::route('settings')->with('status', __('messages.status.logged'));
     }
 }

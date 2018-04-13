@@ -1,10 +1,11 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
-        {{Form::open(['url'=>route('bounty.save'), 'id'=>'bounty-add'])}}
+        {{Form::open(['url'=>route('bounty.edit'), 'id'=>'bounty-update'])}}
+        {{Form::hidden('bounty_id', $bounty->id)}}
 
         <div class="modal-header">
-            <h5 class="modal-title">{{__('messages.form-bounty-add.title')}}</h5>
+            <h5 class="modal-title">{{__('messages.form-bounty-edit.title')}}</h5>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -16,24 +17,24 @@
             <div class="form-group row">
                 {{Form::label('name', __('messages.form-bounty-add.name'), ['class'=>'col-sm-6 col-form-label'])}}
                 <div class="col-sm-6">
-                    {{Form::text('name', null, ['class'=>'form-control'])}}
+                    {{Form::text('name', $bounty->name, ['class'=>'form-control'])}}
                 </div>
             </div>
             <div class="form-group row">
                 {{Form::label('twitter_url', __('messages.form-bounty-add.twitter_url'), ['class'=>'col-sm-6 col-form-label'])}}
                 <div class="col-sm-6">
-                    {{Form::text('twitter_url', null, ['class' => 'form-control', 'placeholder' => 'https://twitter.com/Bounty'])}}
+                    {{Form::text('twitter_url', $bounty->twitter_url, ['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group row">
                 {{Form::label('twitter_number', __('messages.form-bounty-add.twitter_number'), ['class'=>'col-sm-6 col-form-label'])}}
                 <div class="col-sm-6">
-                    {{Form::text('twitter_number', null, ['class'=>'form-control'])}}
+                    {{Form::text('twitter_number', $bounty->twitter_number, ['class'=>'form-control'])}}
                 </div>
             </div>
             <div class="form-group row">
                 <label for="twitter_tags" class="col-sm-6 col-form-label">
-                    <div>{{ __('messages.form-bounty-add.twitter_tags') }}</div>
+                    <div>{{__('messages.form-bounty-add.twitter_tags')}}</div>
                     <div class="w-25 d-inline">
                         <span class="small">Search by</span>
                         <i class="fab fa-algolia text-primary"></i>
@@ -41,19 +42,19 @@
                     </div>
                 </label>
                 <div class="col-sm-6">
-                    {{Form::select('twitter_tags[]', [], null, ['class'=>'form-control', 'id'=>'twitter_tags', 'data-role'=>'tagsinput', 'multiple', 'autocomplete'=>'off'])}}
+                    {{Form::select('twitter_tags[]', $bounty->tags->pluck('name', 'name')->all(), null, ['class'=>'form-control', 'id'=>'twitter_tags', 'data-role'=>'tagsinput', 'multiple', 'autocomplete'=>'off'])}}
                 </div>
             </div>
             <div class="form-group row">
                 {{Form::label('first_day', __('messages.form-bounty-add.first_day'), ['class'=>'col-sm-6 col-form-label'])}}
                 <div class="col-sm-6">
-                    {{Form::text('first_day', null, ['class'=>'form-control datepicker'])}}
+                    {{Form::text('first_day', $bounty->first_day ? @Carbon\Carbon::createFromFormat('Y-m-d', $bounty->first_day)->format('d.m.Y'): null, ['class'=>'form-control datepicker'])}}
                 </div>
             </div>
             <div class="form-group row">
                 {{Form::label('period', __('messages.form-bounty-add.period'), ['class'=>'col-sm-6 col-form-label'])}}
                 <div class="col-sm-6">
-                    {{Form::text('period', null, ['class'=>'form-control'])}}
+                    {{Form::text('period', $bounty->period, ['class'=>'form-control'])}}
                 </div>
             </div>
 
@@ -105,7 +106,7 @@
                 language: "{{ LaravelLocalization::getCurrentLocale() }}"
             });
 
-            $('#bounty-add').on('submit',function(e){
+            $('#bounty-update').on('submit',function(e){
                 e.preventDefault();
                 $('.form-control').removeClass('is-invalid');
                 $('.invalid-feedback').remove();

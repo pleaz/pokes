@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Bounty</div>
+                    <div class="card-header">{{__('messages.bounty-page.title')}}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -14,25 +14,25 @@
                             </div>
                         @endif
 
-                        <button type="button" onclick="send('{{route('bounty.add')}}')" class="btn btn-primary">Add new bounty</button>
+                        <button type="button" onclick="send('{{route('bounty.add')}}')" class="btn btn-primary">{{__('messages.bounty-page.add_button')}}</button>
                         <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+                        @foreach($bounties as $bounty)
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    {{__('messages.bounty-page.bounty_title')}}{{$bounty->id}}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$bounty->name}}</h5>
+                                    <button type="button" onclick="send('{{route('bounty.edit-form')}}', '{{$bounty->id}}')" class="btn btn-success">{{__('messages.bounty-page.edit_button')}}</button>
+                                    <button type="button" onclick="send('{{route('bounty.del-form')}}', '{{$bounty->id}}')" class="btn btn-danger">{{__('messages.bounty-page.delete_button')}}</button>
+                                </div>
+                            </div>
+                        @endforeach
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script type="application/javascript">
-        function send(url) {
-            axios.get(url)
-            .then(function (response) {
-                $('.modal').empty().append(response.data.html).modal();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
-    </script>
-
 @endsection

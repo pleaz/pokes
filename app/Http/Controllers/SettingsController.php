@@ -27,7 +27,7 @@ class SettingsController extends Controller
             }
         }
 
-        return view('settings', compact('user', 'twitter'));
+        return view('settings.main', compact('user', 'twitter'));
     }
 
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTemplatesTable extends Migration
+class CreateUsersReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateUsersTemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_templates', function (Blueprint $table) {
+        Schema::create('users_reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('twitter_template')->nullable();
-            $table->string('facebook_template')->nullable();
-            $table->integer('user_id')->unsigned()->index();
+            $table->date('date')->nullable();
+            $table->text('report')->nullable();
+            $table->integer('bounty_id')->unsigned()->index();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('bounty_id')->references('id')->on('bounty')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateUsersTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_templates');
+        Schema::dropIfExists('users_reports');
     }
 }

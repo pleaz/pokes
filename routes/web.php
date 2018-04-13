@@ -34,9 +34,17 @@ Route::group([
     Route::get('/bounty', 'BountyController@index')->name('bounty');
     Route::get('/bounty/add', 'BountyController@AddForm')->name('bounty.add');
     Route::post('/bounty/save', 'BountyController@Save')->name('bounty.save');
+    Route::get('/bounty/delete', 'BountyController@DeleteForm')->name('bounty.del-form');
+    Route::post('/bounty/delete', 'BountyController@Delete')->name('bounty.delete');
+    Route::get('/bounty/edit', 'BountyController@EditForm')->name('bounty.edit-form');
+    Route::post('/bounty/edit', 'BountyController@Edit')->name('bounty.edit');
+    Route::get('/bounty/search', 'BountyController@Search')->name('bounty.search');
 
+    Route::get('/reports', 'ReportController@index')->name('reports');
+    Route::post('/reports', 'ReportController@index')->name('reports.date');
 
-    Route::get('/bounty/search', 'BountyController@search')->name('bounty.search');
+    Route::post('/reports/generate', 'ReportController@generate')->name('reports.generate');
+    Route::post('/reports/search', 'ReportController@search')->name('reports.search');
 
 });
 

@@ -18,10 +18,11 @@ class CreateUsersTwitterTable extends Migration
             $table->string('oauth_token');
             $table->string('oauth_token_secret');
             $table->string('userid')->unique();
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

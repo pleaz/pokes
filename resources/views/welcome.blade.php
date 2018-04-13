@@ -84,9 +84,9 @@
             @endif
 
 
-                <div class="content">
+            <div class="content">
                 <div class="title m-b-md">
-                    Pokes
+                    {{__('messages.pokes')}}
                 </div>
             </div>
         </div>

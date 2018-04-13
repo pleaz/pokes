@@ -59,23 +59,38 @@ if (token) {
 var fontawesome = require('@fortawesome/fontawesome');
 var faUser = require('@fortawesome/fontawesome-free-solid/faUser');
 var faSignOut = require('@fortawesome/fontawesome-free-solid/faSignOutAlt');
-//var faCircle = require('@fortawesome/fontawesome-free-regular/faCircle');
+var faSpinner = require('@fortawesome/fontawesome-free-solid/faSpinner');
 var faTwitter = require('@fortawesome/fontawesome-free-brands/faTwitter');
-fontawesome.library.add(faUser,faSignOut,faTwitter);
+var faAlgolia = require('@fortawesome/fontawesome-free-brands/faAlgolia');
+var faCalendar = require('@fortawesome/fontawesome-free-regular/faCalendarAlt');
+fontawesome.library.add(faUser,faSignOut,faSpinner,faTwitter,faAlgolia,faCalendar);
 
 /* datepicker */
 require('bootstrap-datepicker');
-$(function () {
-    !function(a){a.fn.datepicker.dates.ru={days:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],daysShort:["Вск","Пнд","Втр","Срд","Чтв","Птн","Суб"],daysMin:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],months:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],monthsShort:["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"],today:"Сегодня",clear:"Очистить",format:"dd.mm.yyyy",weekStart:1,monthsTitle:"Месяцы"}}(jQuery);
-    $('.datepicker').datepicker({
-        format: "dd.mm.yyyy",
-        autoclose: true,
-        language: "ru"
-    });
-});
+!function(a){a.fn.datepicker.dates.ru={days:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],daysShort:["Вск","Пнд","Втр","Срд","Чтв","Птн","Суб"],daysMin:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],months:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],monthsShort:["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"],today:"Сегодня",clear:"Очистить",format:"dd.mm.yyyy",weekStart:1,monthsTitle:"Месяцы"}}(jQuery);
 
 /* tagsinput && typeahead */
 window.Bloodhound  = require('bloodhound-js');
 require('bootstrap-3-typeahead');
 require('bootstrap-tagsinput');
 
+// for open popup
+window.send = function send(url, id) {
+    if(id) {
+        var param = {
+            action_id: id
+        }
+    }
+    axios.get(url, {
+        params: param
+    })
+    .then(function (response) {
+        $('.modal').empty().append(response.data.html).modal();
+    })
+    .catch(function (error) {
+        //console.log(error);
+        if(error.response.data.message){
+            alert(error.response.data.message);
+        }
+    });
+};
