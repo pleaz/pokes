@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.16 on 2018-04-13 23:46:00.
+ * Generated for Laravel 5.6.19 on 2018-04-30 22:48:57.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -11569,13 +11569,13 @@ namespace Illuminate\Support\Facades {
          * @param array $rules
          * @param array $messages
          * @param array $customAttributes
-         * @return void 
+         * @return array 
          * @throws \Illuminate\Validation\ValidationException
          * @static 
          */ 
         public static function validate($data, $rules, $messages = array(), $customAttributes = array())
         {
-            \Illuminate\Validation\Factory::validate($data, $rules, $messages, $customAttributes);
+            return \Illuminate\Validation\Factory::validate($data, $rules, $messages, $customAttributes);
         }
         
         /**
@@ -16505,6 +16505,25 @@ namespace  {
             }
          
             /**
+             * Add a subquery join clause to the query.
+             *
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param string $as
+             * @param string $first
+             * @param string|null $operator
+             * @param string|null $second
+             * @param string $type
+             * @param bool $where
+             * @return \Illuminate\Database\Query\Builder|static 
+             * @throws \InvalidArgumentException
+             * @static 
+             */ 
+            public static function joinSub($query, $as, $first, $operator = null, $second = null, $type = 'inner', $where = false)
+            {    
+                return \Illuminate\Database\Query\Builder::joinSub($query, $as, $first, $operator, $second, $type, $where);
+            }
+         
+            /**
              * Add a left join to the query.
              *
              * @param string $table
@@ -16535,6 +16554,22 @@ namespace  {
             }
          
             /**
+             * Add a subquery left join to the query.
+             *
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param string $as
+             * @param string $first
+             * @param string|null $operator
+             * @param string|null $second
+             * @return \Illuminate\Database\Query\Builder|static 
+             * @static 
+             */ 
+            public static function leftJoinSub($query, $as, $first, $operator = null, $second = null)
+            {    
+                return \Illuminate\Database\Query\Builder::leftJoinSub($query, $as, $first, $operator, $second);
+            }
+         
+            /**
              * Add a right join to the query.
              *
              * @param string $table
@@ -16562,6 +16597,22 @@ namespace  {
             public static function rightJoinWhere($table, $first, $operator, $second)
             {    
                 return \Illuminate\Database\Query\Builder::rightJoinWhere($table, $first, $operator, $second);
+            }
+         
+            /**
+             * Add a subquery right join to the query.
+             *
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param string $as
+             * @param string $first
+             * @param string|null $operator
+             * @param string|null $second
+             * @return \Illuminate\Database\Query\Builder|static 
+             * @static 
+             */ 
+            public static function rightJoinSub($query, $as, $first, $operator = null, $second = null)
+            {    
+                return \Illuminate\Database\Query\Builder::rightJoinSub($query, $as, $first, $operator, $second);
             }
          
             /**
@@ -16844,11 +16895,11 @@ namespace  {
              *
              * @param string $column
              * @param string $operator
-             * @param string $value
+             * @param mixed $value
              * @return \Illuminate\Database\Query\Builder|static 
              * @static 
              */ 
-            public static function orWhereDate($column, $operator, $value)
+            public static function orWhereDate($column, $operator, $value = null)
             {    
                 return \Illuminate\Database\Query\Builder::orWhereDate($column, $operator, $value);
             }

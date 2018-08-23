@@ -58,7 +58,7 @@ class BountyController extends Controller
                 $tmp = Tags::firstOrCreate(['name' => $tag]);
                 $tags[] = $tmp->id;
             }
-            $bounty->tags()->attach($tags);
+            $bounty->tags()->attach(array_unique($tags));
         }
 
         return Response::json(['url' => route('bounty')]);
@@ -123,7 +123,7 @@ class BountyController extends Controller
                     $tmp = Tags::firstOrCreate(['name' => $tag]);
                     $tags[] = $tmp->id;
                 }
-                $bounty->tags()->sync($tags);
+                $bounty->tags()->sync(array_unique($tags));
             }
 
             return Response::json(['url' => route('bounty')]);

@@ -114,6 +114,9 @@
                 form.find(':input[type=submit]').prop('disabled', true);
                 axios.post(form.attr('action'), form.serialize())
                 .then(function (response) {
+                    if (typeof window.yaCounter48503996 === 'object') {
+                        yaCounter48503996.reachGoal('bounsubm');
+                    }
                     window.location = response.data.url;
                 })
                 .catch(function(error){

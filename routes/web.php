@@ -46,5 +46,9 @@ Route::group([
     Route::post('/reports/generate', 'ReportController@generate')->name('reports.generate');
     Route::post('/reports/search', 'ReportController@search')->name('reports.search');
 
+    Route::get('/catalog', function () { return view('catalog'); })->name('catalog');
+    Route::get('/airdrop', function () { return view('airdrop'); })->name('airdrop');
+    Route::get('/faq', function () { return view('faq'); })->name('faq');
+
 });
 

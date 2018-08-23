@@ -129,7 +129,7 @@ class ReportController extends Controller
                 if ($first_diff > -($bounty->period) and $second_diff > 0 and $first_diff <= 0 and $second_diff <= $bounty->period) {
 
                     if(isset($tweet->retweeted_status)) {
-                        $bounty_clear_name = str_replace(['http://twitter.com/', 'https://twitter.com/', 'http://www.twitter.com/', 'https://www.twitter.com/'], '', $bounty->twitter_url);
+                        $bounty_clear_name = str_replace(['http://twitter.com/', 'https://twitter.com/', 'http://www.twitter.com/', 'https://www.twitter.com/', '@', '/'], '', $bounty->twitter_url);
                         if($tweet->retweeted_status->user->screen_name == $bounty_clear_name) {
                             $rtw_urls[] = 'https://twitter.com/'.$tweet->retweeted_status->user->screen_name.'/status/'.$tweet->retweeted_status->id;
                         }
